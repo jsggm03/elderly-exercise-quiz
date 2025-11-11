@@ -1,20 +1,17 @@
-// Netlify Functions - 서버리스 함수
-// API 키를 안전하게 숨기고 프록시 역할 수행
+const fetch = require('node-fetch');
+const FormData = require('form-data');
 
 exports.handler = async (event, context) => {
-  // CORS 헤더
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
-  // OPTIONS 요청 처리 (CORS preflight)
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
 
-  // POST 요청만 허용
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -24,14 +21,14 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // 환경변수에서 API 키 가져오기 (Netlify 대시보드에서 설정)
     const DID_API_KEY = process.env.DID_API_KEY;
     const AGENT_ID = process.env.AGENT_ID || 'v2_agt_UcvqQ_-y';
 
-    // 클라이언트에서 보낸 데이터
-    const { studentName, question, answer, isCorrect } = JSON.parse(event.body);
+    if (!DID_API_KEY) {
+      throw new Error('DID_API_KEY 환경변수가 설정되지 않았습니다');
+    }
 
-    // Step 1: Knowledge Base 생성
+    const { studentName, question, answer, isCorrect } = JSON.parse(event.body);
     const timestamp = new Date().toLocaleString('ko-KR');
     
     const createKnowledgeResponse = await fetch('https://api.d-id.com/knowledge', {
@@ -47,13 +44,13 @@ exports.handler = async (event, context) => {
     });
 
     if (!createKnowledgeResponse.ok) {
-      throw new Error('Knowledge Base 생성 실패');
+      const errorText = await createKnowledgeResponse.text();
+      throw new Error(`Knowledge Base 생성 실패: ${errorText}`);
     }
 
     const knowledge = await createKnowledgeResponse.json();
     const knowledgeId = knowledge.id;
 
-    // Step 2: 답변 내용 작성
     const knowledgeContent = `
 지식제목: 퀴즈 답변 기록 - ${studentName}
 답변일시: ${timestamp}
@@ -66,13 +63,17 @@ exports.handler = async (event, context) => {
 - 선택한 답: ${answer}
 - 정답 여부: ${isCorrect ? '정답 ✓' : '오답 ✗'}
 
+해설:
+이중과제 운동은 일상생활에서 걷기와 대화하기, 걷기와 물건 들기 등 
+여러 과제를 동시에 처리해야 하는 상황에 대비하는 훈련입니다. 
+스텝레더 운동에 청각 자극(호각 소리)을 추가하여 
+주의력, 기억력, 반응속도를 함께 향상시킬 수 있습니다.
+
 학습 성과:
 ${isCorrect ? '- 이중과제의 개념을 정확히 이해했습니다.' : '- 이중과제의 개념을 복습하면 좋겠습니다.'}
 ${isCorrect ? '- 노인 운동 프로그램의 핵심 원리를 파악했습니다.' : '- 노인 운동 프로그램의 핵심 원리를 다시 학습하세요.'}
     `.trim();
 
-    // Step 3: Knowledge에 문서 추가 (텍스트로)
-    const FormData = require('form-data');
     const form = new FormData();
     form.append('file', Buffer.from(knowledgeContent), {
       filename: 'quiz_answer.txt',
@@ -94,10 +95,10 @@ ${isCorrect ? '- 노인 운동 프로그램의 핵심 원리를 파악했습니�
     );
 
     if (!addDocumentResponse.ok) {
-      throw new Error('문서 추가 실패');
+      const errorText = await addDocumentResponse.text();
+      throw new Error(`문서 추가 실패: ${errorText}`);
     }
 
-    // Step 4: Agent에 Knowledge 연결
     const updateAgentResponse = await fetch(
       `https://api.d-id.com/agents/${AGENT_ID}`,
       {
@@ -113,10 +114,10 @@ ${isCorrect ? '- 노인 운동 프로그램의 핵심 원리를 파악했습니�
     );
 
     if (!updateAgentResponse.ok) {
-      throw new Error('Agent 업데이트 실패');
+      const errorText = await updateAgentResponse.text();
+      throw new Error(`Agent 업데이트 실패: ${errorText}`);
     }
 
-    // 성공 응답
     return {
       statusCode: 200,
       headers,
