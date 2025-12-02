@@ -3,930 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>70대는 아직 젊다 - 스텝레더를 이용한 운동</title>
+    <title>🎬 김정민 감독 소개</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{
+            font-family:'Malgun Gothic',sans-serif;
+            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            min-height:100vh;
+            padding:20px;
         }
 
-        body {
-            font-family: 'Malgun Gothic', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+        .container{
+            max-width:1200px;
+            margin:0 auto;
+            background:white;
+            border-radius:20px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.3);
+            overflow:hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+        /* 헤더 */
+        .header{
+            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            color:white;
+            padding:40px;
+            text-align:center;
+        }
+        .header h1{
+            font-size:2.5em;
+            margin-bottom:10px;
         }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
+        /* 탭 */
+        .tabs{
+            display:flex;
+            flex-wrap:wrap;
+            background:#f8f9fa;
+            border-bottom:3px solid #667eea;
+            overflow-x:auto;
         }
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .tab-button{
+            padding:15px 20px;
+            background:#e9ecef;
+            border:none;
+            cursor:pointer;
+            font-size:14px;
+            font-weight:600;
+            color:#495057;
+            border-right:1px solid #dee2e6;
+            transition:.3s;
+            white-space:nowrap;
+        }
+        .tab-button:hover{background:#dee2e6;}
+        .tab-button.active{
+            background:#667eea;
+            color:white;
         }
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+        /* 탭 콘텐츠 */
+        .tab-content{
+            display:none;
+            padding:40px;
+            animation:fadeIn .5s;
+        }
+        .tab-content.active{display:block;}
+
+        @keyframes fadeIn{
+            from{opacity:0;transform:translateY(10px);}
+            to{opacity:1;transform:translateY(0);}
         }
 
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            background: #f8f9fa;
-            border-bottom: 3px solid #667eea;
-            overflow-x: auto;
+        /* 슬라이드 */
+        .slide h2{
+            color:#667eea;
+            font-size:2em;
+            margin-bottom:25px;
+            border-bottom:3px solid #667eea;
+            padding-bottom:10px;
         }
 
-        .tab-button {
-            padding: 15px 20px;
-            background: #e9ecef;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #495057;
-            transition: all 0.3s;
-            border-right: 1px solid #dee2e6;
-            white-space: nowrap;
+        .slide p, .slide li{
+            color:#495057;
+            font-size:1.1em;
+            line-height:1.8;
+            margin-bottom:10px;
         }
 
-        .tab-button:hover {
-            background: #dee2e6;
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:20px;
+            margin-top:20px;
         }
 
-        .tab-button.active {
-            background: #667eea;
-            color: white;
+        .card{
+            background:#f8f9fa;
+            padding:25px;
+            border-radius:15px;
+            border-left:5px solid #667eea;
         }
 
-        .tab-content {
-            display: none;
-            padding: 40px;
-            animation: fadeIn 0.5s;
+        .card h4{
+            color:#667eea;
+            margin-bottom:10px;
+            font-size:1.3em;
         }
 
-        .tab-content.active {
-            display: block;
-        }
+        .cover{text-align:center;padding:60px 40px;}
+        .cover h1{color:#667eea;font-size:3em;margin-bottom:20px;}
+        .cover h2{color:#764ba2;font-size:2em;margin-bottom:20px;}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .slide {
-            min-height: 500px;
-        }
-
-        .slide h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .slide h3 {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin: 25px 0 15px 0;
-        }
-
-        .slide p, .slide li {
-            line-height: 1.8;
-            color: #495057;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .slide ul {
-            list-style-position: inside;
-            margin-left: 20px;
-        }
-
-        .box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-
-        .box h3 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .box p, .box li {
-            color: white;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-        }
-
-        .card h4 {
-            color: #667eea;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            padding: 20px;
-            border-left: 5px solid #ffc107;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        .cover {
-            text-align: center;
-            padding: 60px 40px;
-        }
-
-        .cover h1 {
-            font-size: 3em;
-            color: #667eea;
-            margin-bottom: 30px;
-        }
-
-        .cover h2 {
-            font-size: 2em;
-            color: #764ba2;
-            margin-bottom: 40px;
-            border: none;
-        }
-
-        .cover p {
-            font-size: 1.2em;
-            color: #6c757d;
-            margin: 10px 0;
-        }
-
-        /* Quiz styles */
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .quiz-question {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 15px;
-        }
-
-        .quiz-option {
-            background: #f8f9fa;
-            border: 3px solid #dee2e6;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.1em;
-        }
-
-        .quiz-option:hover {
-            border-color: #667eea;
-            background: #e7f3ff;
-            transform: translateX(5px);
-        }
-
-        .quiz-option.correct {
-            background: #d4edda;
-            border-color: #28a745;
-            color: #155724;
-        }
-
-        .quiz-option.incorrect {
-            background: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
-        }
-
-        .quiz-option.disabled {
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-
-        .quiz-feedback {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            display: none;
-        }
-
-        .quiz-feedback.show {
-            display: block;
-        }
-
-        .quiz-feedback.correct {
-            background: #d4edda;
-            border-left: 5px solid #28a745;
-            color: #155724;
-        }
-
-        .quiz-feedback.incorrect {
-            background: #f8d7da;
-            border-left: 5px solid #dc3545;
-            color: #721c24;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .tab-button {
-                font-size: 12px;
-                padding: 12px 15px;
-            }
-            
-            .slide h2 {
-                font-size: 1.5em;
-            }
-            
-            .cover h1 {
-                font-size: 2em;
-            }
+        #did-agent{
+            position:fixed!important;
+            bottom:20px!important;
+            right:20px!important;
+            z-index:9999!important;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>70대는 아직 젊다</h1>
-            <p>스텝레더를 이용한 노인 운동 프로그램</p>
-        </div>
 
-        <div class="tabs">
-            <button class="tab-button active" onclick="openTab(event, 'tab1')">표지</button>
-            <button class="tab-button" onclick="openTab(event, 'tab2')">목차</button>
-            <button class="tab-button" onclick="openTab(event, 'tab3')">프로그램 설계</button>
-            <button class="tab-button" onclick="openTab(event, 'tab4')">스텝 레더 소개</button>
-            <button class="tab-button" onclick="openTab(event, 'tab5')">유용성 1</button>
-            <button class="tab-button" onclick="openTab(event, 'tab6')">유용성 2</button>
-            <button class="tab-button" onclick="openTab(event, 'tab7')">절차기억이란</button>
-            <button class="tab-button" onclick="openTab(event, 'tab8')">절차기억 일반화</button>
-            <button class="tab-button" onclick="openTab(event, 'tab9')">이중과제 원리</button>
-            <button class="tab-button" onclick="openTab(event, 'tab10')">인지기능 종류</button>
-            <button class="tab-button" onclick="openTab(event, 'tab11')">이중과제 적용</button>
-            <button class="tab-button" onclick="openTab(event, 'tab12')">공 던지고 잡기</button>
-            <button class="tab-button" onclick="openTab(event, 'tab13')">통합 프로그램</button>
-            <button class="tab-button" onclick="openTab(event, 'tab14')">이해 문제</button>
-            <button class="tab-button" onclick="openTab(event, 'tab15')">감사합니다</button>
-        </div>
+<div class="container">
+    <div class="header">
+        <h1>🎬 김정민 감독 소개</h1>
+        <p>프로필 · 필모그래피 · 작품 세계</p>
+    </div>
 
-        <div id="tab1" class="tab-content active">
-            <div class="slide cover">
-                <h1>70대는 아직 젊다</h1>
-                <h2>- 스텝레더를 이용한 운동 -</h2>
-                <p><strong>팀명: 꼼빛 차티시엘</strong></p>
-                <br>
-                <p>조장: 20237515 최재원</p>
-                <p>조원: 20237488 이승준</p>
-                <p>조원: 20237521 안도현</p>
-                <p>조원: 20237528 이요한</p>
-            </div>
-        </div>
+    <!-- 탭 버튼 -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event,'tab1')">프로필</button>
+        <button class="tab-button" onclick="openTab(event,'tab2')">필모그래피</button>
+        <button class="tab-button" onclick="openTab(event,'tab3')">거울 속의 시간 · 정보</button>
+        <button class="tab-button" onclick="openTab(event,'tab4')">거울 속의 시간 · 줄거리</button>
+        <button class="tab-button" onclick="openTab(event,'tab5')">거울 속의 시간 · 해석</button>
+        <button class="tab-button" onclick="openTab(event,'tab6')">거울 속의 시간 · 평론</button>
+        <button class="tab-button" onclick="openTab(event,'tab7')">언캐니 · 정보</button>
+        <button class="tab-button" onclick="openTab(event,'tab8')">언캐니 · 줄거리</button>
+        <button class="tab-button" onclick="openTab(event,'tab9')">언캐니 · 해석</button>
+        <button class="tab-button" onclick="openTab(event,'tab10')">언캐니 · 평론</button>
+    </div>
 
-        <div id="tab2" class="tab-content">
-            <div class="slide">
-                <h2>목차</h2>
-                
+    <!-- 탭 1 -->
+    <div id="tab1" class="tab-content active">
+        <div class="slide">
+            <h2>👤 김정민 감독 프로필</h2>
+
+            <div class="grid">
                 <div class="card">
-                    <h4>1. 프로그램 설계의 필요성</h4>
+                    <h4>학력/전공</h4>
+                    <p>차의과학대학교 심리학, 미디어커뮤니케이션 전공</p>
                 </div>
-                
                 <div class="card">
-                    <h4>2. 스텝레더 운동의 소개 및 유용성</h4>
+                    <h4>창작 성향</h4>
+                    <p>예술 영화 기반의 이론적 시나리오 집필 및 실험 영화 제작</p>
                 </div>
-                
                 <div class="card">
-                    <h4>3. 절차 기억의 이해 및 일반화</h4>
+                    <h4>데뷔/주목</h4>
+                    <p>22세 작품 <em>거울 속의 시간</em>으로 데뷔</p>
                 </div>
-                
                 <div class="card">
-                    <h4>4. 이중과제 운동의 원리 및 적용</h4>
+                    <h4>최근 행보</h4>
+                    <p>신작 <em>언캐니</em> 개봉으로 작품 세계 확장</p>
                 </div>
-                
-                <div class="card">
-                    <h4>5. 공 던지고 잡기 운동</h4>
-                </div>
-                
-                <div class="card">
-                    <h4>6. 통합 운동 프로그램</h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab3" class="tab-content">
-            <div class="slide">
-                <h2>프로그램 설계의 필요성</h2>
-                
-                <div class="box">
-                    <h3>노화에 대한 부정적 인식 전환</h3>
-                    <p>우리는 <strong>"70대는 아직 젊다"</strong>라는 슬로건 아래, 노화의 부정적 이미지를 벗고 건강하고 활기찬 노년층의 모습을 새롭게 정의하고자 합니다.</p>
-                </div>
-
-                <h3>신체기능 저하의 문제</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4>1. 근육량 및 근력 감소</h4>
-                        <p>노화로 근육량이 줄어들고, 특히 <strong>하지 근력 저하</strong>는 일상생활 동작과 균형 유지를 어렵게 만듭니다.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>2. 균형감각 저하</h4>
-                        <p><strong>시각, 전정기관, 고유수용감각</strong>이 약화되면서 <strong>낙상 위험</strong>이 증가합니다.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>3. 인지기능 저하</h4>
-                        <p><strong>기억력, 주의력, 판단력 등</strong> 인지능력의 약화는 낙상으로 이어질 수 있습니다.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>4. 만성 질환</h4>
-                        <p><strong>골다공증, 관절염 등</strong> 신체구조적 변화로 인해 빠른 대처가 어렵고, 낙상 시 골절의 위험이 높아집니다.</p>
-                    </div>
-                </div>
-
-                <div class="highlight">
-                    <p><strong>그렇다면 중요한 것은?</strong></p>
-                    <p>신체적 손상을 막기 위한 <strong>"예방"</strong>이 핵심입니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab4" class="tab-content">
-            <div class="slide">
-                <h2>스텝레더(Step Ladder) 소개</h2>
-                
-                <div class="card">
-                    <h4>정의</h4>
-                    <p>시각적 단서를 활용한 발 디딤 훈련 도구로, 운동 학습, 협응력 및 반응속도 향상을 목표로 합니다.</p>
-                </div>
-
-                <h3>활용 방법</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4>1단계: 달걀 스텝 (완두)</h4>
-                        <p>한 칸에 한 발씩 천천히 두 걸음</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>2단계: 병아리 스텝 (쌍유으)</h4>
-                        <p>한 칸에 두 발을 두는 리듬 스텝</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>3단계: 꼬꼬닭 스텝 (삼차게)</h4>
-                        <p>빠르고 복잡한 좌우 발 번갈아 스텝</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>4단계: 치킨 스텝 (복잡하게)</h4>
-                        <p>자유롭게 한 칸에 양발 혹은 한 칸에 한발로 스텝</p>
-                    </div>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Jian-Cheng Chen, Y.-L. W. (2024.01). Effectiveness of a step training programme using rhythmic auditory stimulation and an agility ladder in community-dwelling older adults: a pilot randomised controlled trial. Journal of clinical nursing.
-                </p>
-            </div>
-        </div>
-
-        <div id="tab5" class="tab-content">
-            <div class="slide">
-                <h2>스텝레더 운동의 유용성 1</h2>
-                
-                <div class="card">
-                    <h4>시각적 단서를 통한 운동 촉진</h4>
-                    <p>명확한 발 디딤 위치를 제공하여 발 움직임과 속도를 통제</p>
-                </div>
-
-                <div class="card">
-                    <h4>하지 협응력 및 균형 강화</h4>
-                    <p>다양한 발 배치와 리듬을 통해 발목, 무릎, 엉덩이 관절의 복합 운동 유도</p>
-                </div>
-
-                <div class="card">
-                    <h4>반응속도 및 인지 자극</h4>
-                    <p>빠르게 전환되는 동작 패턴으로 인해 뇌의 운동계획 및 처리 능력 강화</p>
-                </div>
-
-                <div class="card">
-                    <h4>안전한 운동 환경 제공</h4>
-                    <p>정해진 범위 내에서 움직여 낙상 위험 최소화</p>
-                </div>
-
-                <div class="card">
-                    <h4>낙상 예방 효과</h4>
-                    <p>일상생활에서 발생하는 균형 요구 상황에 대비한 반복 훈련</p>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Jian-Cheng Chen, Y.-L. W. (2024.01). Effectiveness of a step training programme using rhythmic auditory stimulation and an agility ladder in community-dwelling older adults: a pilot randomised controlled trial. Journal of clinical nursing.
-                </p>
-            </div>
-        </div>
-
-        <div id="tab6" class="tab-content">
-            <div class="slide">
-                <h2>스텝레더 운동의 유용성 2</h2>
-                
-                <div class="box">
-                    <h3>보행 능력 및 낙상 예방</h3>
-                    <p><strong>보행 속도</strong>, <strong>보행 길이 증가</strong>. 그리고 <strong>균형감각과 하지 근력의 향상</strong></p>
-                </div>
-
-                <div class="box">
-                    <h3>기능적 운동 능력 강화</h3>
-                    <p><strong>30초 일어서기 검사</strong>, <strong>5회 일어서기 검사</strong> 등에서 유의미한 성과를 보임</p>
-                </div>
-
-                <div class="box">
-                    <h3>인지기능 향상</h3>
-                    <p>스텝 레더 훈련은 시각적 단서와 발 협응이라는 <strong>이중과제(dual-task)</strong> 요소를 포함하고 있어 <strong>주의력, 기억력, 반응속도</strong> 향상에 긍정적인 영향을 미칩니다.</p>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Jian-Cheng Chen, Y.-L. W. (2024.01). Effectiveness of a step training programme using rhythmic auditory stimulation and an agility ladder in community-dwelling older adults: a pilot randomised controlled trial. Journal of clinical nursing.
-                </p>
-            </div>
-        </div>
-
-        <div id="tab7" class="tab-content">
-            <div class="slide">
-                <h2>반복숙달을 통한 절차기억의 이해</h2>
-                
-                <div class="card">
-                    <h4>운동 기억(Procedural Memory)</h4>
-                    <p>반복적인 신체 활동을 통해 학습되고 오랜 시간 유지되는 기억의 한 형태</p>
-                </div>
-
-                <div class="card">
-                    <h4>자동화와 일관성</h4>
-                    <p>수행 초기에는 느리지만, 반복적인 훈련을 거치면 자동적이고 효율적으로 수행 가능</p>
-                </div>
-
-                <div class="card">
-                    <h4>시각-운동 협응 강화</h4>
-                    <p>시각 단서를 통해 적절한 발 위치를 예측하고 빠르게 반응</p>
-                </div>
-
-                <div class="card">
-                    <h4>숙달 후 활용</h4>
-                    <p>스텝레더 훈련을 통해 형성된 운동 패턴은 일상에서 장애물 회피, 계단 오르기 등 낙상 예방에 중요한 역할을 합니다.</p>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Gluck, M. A., Mercado, E., & Myers, C. E. (역: 최준식, 신명식, 한성희, 김현택). 학습과 기억: 뇌에서 행동까지.
-                </p>
-            </div>
-        </div>
-
-        <div id="tab8" class="tab-content">
-            <div class="slide">
-                <h2>반복숙달을 통한 절차기억의 이해: 절차기억의 일반화</h2>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h4>"절차기억의 특성"</h4>
-                        <p><strong>1. 특이성</strong></p>
-                        <p>숙련기억은 일반적으로 일반화 되지 않음.</p>
-                        <br>
-                        <p><strong>2. 유연성</strong></p>
-                        <p>새로운 상황에 직면 시 과거의 경험을 이용. 일반화를 시도.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>"절차기억의 일반화"</h4>
-                        <p><strong>1. 전이 가능성</strong></p>
-                        <p>학습된 상황과 유사한 상황 발생 시 효과적인 대안책이 됨.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>"스텝레더의 일반화"</h4>
-                        <p>스텝레더 훈련은 낙상 상황에 대한 유용한 시각-운동 일반화를 제공</p>
-                        <ul>
-                            <li>발 디딤의 역제 및 조절</li>
-                            <li>관절 수용기의 조절</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Gluck, M. A., Mercado, E., & Myers, C. E. (역: 최준식, 신명식, 한성희, 김현택). 학습과 기억: 뇌에서 행동까지.
-                </p>
-            </div>
-        </div>
-
-        <div id="tab9" class="tab-content">
-            <div class="slide">
-                <h2>이중과제 운동의 원리</h2>
-                
-                <div class="card">
-                    <h4>1. 이중과제 운동의 정의</h4>
-                    <ul>
-                        <li>두 가지 독립적인 과제를 동시에 수행하는 훈련 전략</li>
-                        <li>신체적 과제와 인지적 과제의 결합 또는 두 개의 신체적 과제 동시 수행</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h4>2. 이중과제 운동의 원리</h4>
-                    <ul>
-                        <li>일상생활에서 두 가지 이상의 일을 동시에 처리하는 능력 향상</li>
-                        <li>한 과제 집중 시 다른 과제 수행 능력 저하 현상 감소</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h4>3. 이중과제 운동의 원칙</h4>
-                    <ul>
-                        <li>일상생활과 유사한 과제를 제시</li>
-                        <li>두 가지 과제의 유사한 간섭을 최소화</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab10" class="tab-content">
-            <div class="slide">
-                <h2>인지기능 종류</h2>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h4>기억 및 학습</h4>
-                        <p>정보를 저장하고 필요할 때 인출하여 사용하는 능력.(숫자, 사건, 지식 등)</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>주의 및 집중</h4>
-                        <p>특정 자극에 초점을 맞추고, 불필요한 자극을 무시하며 집중을 유지하는 능력.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>언어 능력</h4>
-                        <p>듣기, 말하기, 읽기, 쓰기 등의 사소통을 위해 언어를 사용하고 이해하는 능력.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>지각 운동 및 공간 처리</h4>
-                        <p>눈으로 본 정보(지각)를 바탕으로 신체를 움직이고, 공간 관계를 파악하는 능력.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>집행 기능</h4>
-                        <p>목표 설정, 계획 수립, 문제 해결, 행동 조절 등 복잡한 인지 활동을 총괄 지휘하는 능력.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>처리 속도 및 정보 처리</h4>
-                        <p>정보를 빠르고 정확하게 받아들이고 처리하여 반응을 출력하는 속도.</p>
-                    </div>
-                </div>
-
-                <div class="card" style="margin-top: 20px;">
-                    <h4>사회인지</h4>
-                    <p>사람들이 자신과 타인, 그리고 사회적 상황에 대한 정보를 처리하고 이해하는 능력</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab11" class="tab-content">
-            <div class="slide">
-                <h2>스텝레더의 이중과제 적용</h2>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h4>1. 기존 스텝 레더 훈련</h4>
-                        <p>시각적 단서를 활용하여 보행 안정성, 하지 협응력, 반응속도 향상에 효과적</p>
-                        <p><strong>하지만</strong></p>
-                        <p>주로 시각 + 운동 자극 중심 → 감각 자극의 단일화 한계</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>2. 청각 기반 이중과제 설계</h4>
-                        <p><strong>a. 청각 자극 종류에 따라 특정 동작을 기억시킴</strong></p>
-                        <p><strong>b. 스텝 레더 수행 중 무작위 호각 제시 → 즉각적 반응 요구</strong></p>
-                        <p>기존 시간에만 의존하던 운동에 청각·기억·주의 전환을 추가한 복합 훈련</p>
-                    </div>
-                </div>
-
-                <div class="box" style="margin-top: 20px;">
-                    <h4>예시</h4>
-                    <p><strong>호각 소리 1회:</strong> 박수 한 번</p>
-                    <p><strong>호각 소리 2회:</strong> 가볍게 만세</p>
-                    <p><strong>호각 소리 딜레이:</strong> 무릎 터치</p>
-                </div>
-
-                <div class="box">
-                    <h4>예시</h4>
-                    <p>숙련된 스텝레더 동작 중에 무작위로 호각소리 제시</p>
-                </div>
-
-                <p style="font-size: 0.9em; color: #6c757d; margin-top: 20px;">
-                    Effects of Dual-Tasking on Stepping Strategy and Inter-Joint Coordination During Walking in Older Fallers and Non-Fallers, 2025 , Innovation in Aging. DOI: 10.1093/geroni/igaf055
-                </p>
-            </div>
-        </div>
-
-        <div id="tab12" class="tab-content">
-            <div class="slide">
-                <h2>공 던지고 잡기 운동</h2>
-                
-                <div class="card">
-                    <h4>운동 선정 이유</h4>
-                    <p>공을 던지고 받는 동작으로 <strong>상지의 협응력</strong>, <strong>반응속도</strong>, <strong>눈-손 협응</strong>을 향상시키며, 스텝 레더의 하지 집중 운동을 상지로 전이하여 <strong>하지와 상지의 통합성을 유도</strong></p>
-                </div>
-
-                <div class="card">
-                    <h4>일상생활 적용</h4>
-                    <p>공의 궤적을 예측하고 잡는 <strong>판단력</strong>을 증진시켜서 노인의 움직임을 증진시키며,</p>
-                    <p><strong>낙상 시 난간을 잡는 등</strong> 일상생활 동작에서 수행 능력 향상에 기여할 수 있음 것이다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab13" class="tab-content">
-            <div class="slide">
-                <h2>통합 운동 프로그램</h2>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h4>리듬과 함께 스텝 운동</h4>
-                        <ol>
-                            <li>완두로 달걀 스텝</li>
-                            <li>쌍유으로 병아리 스텝</li>
-                            <li>삼차게 꼬꼬닭 스텝</li>
-                            <li>복잡하게 치킨 스텝</li>
-                            <li>각 스텝 후 공 던지고 받기</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>메디신 볼 던지고 받기</h4>
-                        <ol>
-                            <li>하나의 스텝 홉 들이서 하이파이브</li>
-                            <li>들이서 마주 보고 공 던지고 받기</li>
-                            <li>왕복 3회 후 다음 스텝으로</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="card">
-                        <h4>이중과제 스텝레더</h4>
-                        <ol>
-                            <li>스텝 도중 무작위 이중과제 수행</li>
-                            <li>스텝 종료 후 검사 휴식</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="box" style="margin-top: 30px;">
-                    <h3>"통합프로그램을 그룹운동으로 적용"</h3>
-                    <br>
-                    <h4>운동의 즐거움 상승</h4>
-                    <h4>사회적 교류 증진</h4>
-                    <h4>정서적 안정감 형성</h4>
-                    <h4>상호 피드백과 모방</h4>
-                    <br>
-                    <p><strong>"사회인지기능 향상"</strong></p>
-                    <p><strong>"자기효능감 상승"</strong></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab14" class="tab-content">
-            <div class="slide">
-                <h2>이해 문제</h2>
-                
-                <div class="quiz-container">
-                    <div class="card" style="margin-bottom: 30px;">
-                        <h4>답변자 정보</h4>
-                        <input type="text" id="studentName" placeholder="이름을 입력하세요" 
-                               style="width: 100%; padding: 12px; font-size: 1.1em; border: 2px solid #dee2e6; border-radius: 8px; margin-top: 10px;">
-                        <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
-                            * 답변 결과가 AI 에이전트 지식베이스에 저장됩니다.
-                        </p>
-                    </div>
-                    
-                    <div class="quiz-question">
-                        Q. 스텝레더 운동에 이중과제를 적용하는 주된 이유는 무엇인가요?
-                    </div>
-                    
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <strong>① </strong>운동 시간을 단축하기 위해서
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <strong>② </strong>하지 근력만 집중적으로 강화하기 위해서
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">
-                            <strong>③ </strong>일상생활에서 여러 과제를 동시에 처리하는 능력을 향상시키기 위해서
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <strong>④ </strong>운동의 난이도를 낮추기 위해서
-                        </div>
-                    </div>
-                    
-                    <div id="feedback" class="quiz-feedback">
-                        <div id="feedback-text"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="tab15" class="tab-content">
-            <div class="slide cover">
-                <h1>감사합니다</h1>
-                <h2>- 꼼빛 차티시엘 -</h2>
-                <br><br>
-                <p>조장: 20237515 최재원</p>
-                <p>조원: 20237488 이승준</p>
-                <p>조원: 20237521 안도현</p>
-                <p>조원: 20237528 이요한</p>
             </div>
         </div>
     </div>
 
-    <script>
-        // D-ID Agent 설정
-        const AGENT_ID = "v2_agt_UcvqQ_-y";
-        const CLIENT_KEY = "Z29vZ2xlLW9hdXRoMnwxMTI3NjQ3MzA0NTM3NjA0MTgyMTI6d01EN0x6bFFFMmlZSk9nUHNacXll";
-        
-        function openTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
-            
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            
-            tabbuttons = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
+    <!-- 탭 2 -->
+    <div id="tab2" class="tab-content">
+        <div class="slide">
+            <h2>🎞️ 필모그래피</h2>
 
-        async function updateKnowledge(studentName, question, answer, isCorrect) {
-            try {
-                // Netlify Functions 엔드포인트 호출
-                // 로컬 테스트: /.netlify/functions/update-knowledge
-                // 배포 후: https://your-site.netlify.app/.netlify/functions/update-knowledge
-                
-                const response = await fetch('/.netlify/functions/update-knowledge', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        studentName: studentName,
-                        question: question,
-                        answer: answer,
-                        isCorrect: isCorrect
-                    })
-                });
+            <div class="grid">
+                <div class="card">
+                    <h4>작품 목록</h4>
+                    <p>• 2024.07.25 <em>거울 속의 시간</em><br>
+                    • 2025.11.01 <em>언캐니</em></p>
+                </div>
+                <div class="card">
+                    <h4>주요 키워드</h4>
+                    <p>자기 성찰 · 시간/기억 · 일상 속 낯섦 · 미니멀리즘</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                const result = await response.json();
-                
-                if (result.success) {
-                    console.log('✅ 답변이 AI 에이전트에 저장되었습니다!');
-                    return true;
-                } else {
-                    console.error('⚠️ 저장 실패:', result.error);
-                    return false;
-                }
+    <!-- 탭 3 -->
+    <div id="tab3" class="tab-content">
+        <div class="slide">
+            <h2>🪞 영화 <em>거울 속의 시간</em> 정보</h2>
 
-            } catch (error) {
-                console.error('Knowledge 업데이트 오류:', error);
-                // 오류가 발생해도 사용자 경험은 유지
-                return false;
-            }
-        }
+            <div class="grid">
+                <div class="card">
+                    <h4>기본 정보</h4>
+                    <p>대한민국 제작 · 예술/철학 드라마 · 65분</p>
+                </div>
+                <div class="card">
+                    <h4>개봉/성과</h4>
+                    <p>2024년 7월 25일 개봉 · 평점 8.7 · 관객 12,340명</p>
+                </div>
+                <div class="card">
+                    <h4>제작진/출연</h4>
+                    <p>감독: 김정민<br>배우: 한지윤, 박도현, 김서하</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        function checkAnswer(element, isCorrect) {
-            // 이름 확인
-            const studentName = document.getElementById('studentName').value.trim();
-            if (!studentName) {
-                alert('답변자 이름을 먼저 입력해주세요!');
-                return;
-            }
-            
-            // 이미 답변한 경우 무시
-            if (element.classList.contains('disabled')) {
-                return;
-            }
-            
-            // 선택한 답변 텍스트
-            const selectedAnswer = element.textContent.trim();
-            const question = "스텝레더 운동에 이중과제를 적용하는 주된 이유는 무엇인가요?";
-            
-            // 모든 옵션 비활성화
-            var options = document.getElementsByClassName('quiz-option');
-            for (var i = 0; i < options.length; i++) {
-                options[i].classList.add('disabled');
-            }
-            
-            // 피드백 요소
-            var feedback = document.getElementById('feedback');
-            var feedbackText = document.getElementById('feedback-text');
-            
-            if (isCorrect) {
-                element.classList.add('correct');
-                feedback.className = 'quiz-feedback correct show';
-                feedbackText.innerHTML = '<strong>✓ 정답입니다!</strong><br><br>' +
-                    '이중과제 운동은 일상생활에서 걷기와 대화하기, 걷기와 물건 들기 등 ' +
-                    '여러 과제를 동시에 처리해야 하는 상황에 대비하는 훈련입니다. ' +
-                    '스텝레더 운동에 청각 자극(호각 소리)을 추가하여 ' +
-                    '<strong>주의력, 기억력, 반응속도</strong>를 함께 향상시킬 수 있습니다.<br><br>' +
-                    '<em style="color: #28a745;">답변을 저장하고 있습니다...</em>';
-            } else {
-                element.classList.add('incorrect');
-                feedback.className = 'quiz-feedback incorrect show';
-                feedbackText.innerHTML = '<strong>✗ 아쉽습니다.</strong><br><br>' +
-                    '정답은 <strong>③번</strong>입니다.<br><br>' +
-                    '이중과제 운동의 목적은 일상생활에서 두 가지 이상의 일을 동시에 처리하는 능력을 향상시키는 것입니다. ' +
-                    '노인들은 걷기와 대화하기를 동시에 할 때 낙상 위험이 높아지는데, ' +
-                    '이중과제 훈련을 통해 이러한 상황에 대처하는 능력을 기를 수 있습니다.<br><br>' +
-                    '<em style="color: #dc3545;">답변을 저장하고 있습니다...</em>';
-                
-                // 정답 표시
-                for (var i = 0; i < options.length; i++) {
-                    if (options[i].onclick.toString().includes('true')) {
-                        options[i].classList.add('correct');
-                    }
-                }
-            }
-            
-            // D-ID Knowledge 업데이트 (비동기)
-            updateKnowledge(studentName, question, selectedAnswer, isCorrect).then(success => {
-                // 저장 완료 메시지 업데이트
-                const currentHTML = feedbackText.innerHTML;
-                if (success) {
-                    feedbackText.innerHTML = currentHTML.replace(
-                        '답변을 저장하고 있습니다...',
-                        '✅ 답변이 AI 에이전트에 저장되었습니다!'
-                    );
-                } else {
-                    feedbackText.innerHTML = currentHTML.replace(
-                        '답변을 저장하고 있습니다...',
-                        '⚠️ 답변 저장 중 오류가 발생했습니다.'
-                    );
-                }
-            });
-        }
-    </script>
+    <!-- 탭 4 -->
+    <div id="tab4" class="tab-content">
+        <div class="slide">
+            <h2>📖 줄거리</h2>
+            <div class="card">
+                <p>오래된 다락에서 거울을 발견한 ‘미래’는 거울 속 다른 시간대의 자신과 마주한다…<br>
+                기억·관계·시간을 성찰하며 마지막에 거울을 깨고 현재로 돌아온다.</p>
+            </div>
+        </div>
+    </div>
 
-    <!-- D-ID AI Agent -->
-    <script type="module"
-          src="https://agent.d-id.com/v2/index.js"
-          data-mode="fabio"
-          data-client-key="Z29vZ2xlLW9hdXRoMnwxMTI3NjQ3MzA0NTM3NjA0MTgyMTI6d01EN0x6bFFFMmlZSk9nUHNacXll"
-          data-agent-id="v2_agt_pjBX7hMj"
-          data-name="did-agent"
-          data-monitor="true"
-          data-orientation="horizontal"
-          data-position="right">
-    </script>
+    <!-- 탭 5 -->
+    <div id="tab5" class="tab-content">
+        <div class="slide">
+            <h2>🧠 해석</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>주제</h4>
+                    <p>내면 탐색과 자기 인식. 거울은 은유적 장치</p>
+                </div>
+                <div class="card">
+                    <h4>연출</h4>
+                    <p>정적인 공간 + 최소한의 대사로 ‘사유의 영화’ 구축</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:20px;">
+                <h4>핵심 메시지</h4>
+                <p>기억·시간·선택의 의미를 사유하게 하는 체험적 작품</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 6 -->
+    <div id="tab6" class="tab-content">
+        <div class="slide">
+            <h2>🗣️ 평론</h2>
+
+            <div class="grid">
+                <div class="card"><p>김민석: “내면과 시간의 탐색이 뛰어나다.”</p></div>
+                <div class="card"><p>박소연: “정적 장면의 미학이 빛난다.”</p></div>
+                <div class="card"><p>이정우: “거울은 현실 직면의 장치.”</p></div>
+                <div class="card"><p>정혜진: “현대인의 자기 성찰을 비춘다.”</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 7 -->
+    <div id="tab7" class="tab-content">
+        <div class="slide">
+            <h2>🧩 언캐니 정보</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>기본 정보</h4>
+                    <p>대한민국 · 드라마 · 70분</p>
+                </div>
+                <div class="card">
+                    <h4>개봉/성과</h4>
+                    <p>2025.11.01 개봉 · 평점 9.08</p>
+                </div>
+                <div class="card">
+                    <h4>출연</h4>
+                    <p>감독 김정민 · 배우 창욱</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 8 -->
+    <div id="tab8" class="tab-content">
+        <div class="slide">
+            <h2>📖 줄거리</h2>
+
+            <div class="card">
+                <p>직장인 ‘창욱’은 퇴근길에 스쳐간 ‘낯선 무엇’을 따라가다…<br>
+                거울이 삽입된 조각 ‘언캐니’를 통해 자기 대면과 감각 회복을 경험한다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 9 -->
+    <div id="tab9" class="tab-content">
+        <div class="slide">
+            <h2>🧠 해석</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>개념적 토대</h4>
+                    <p>프로이드의 ‘익숙함 속 낯섦(언캐니)’ 개념 기반</p>
+                </div>
+                <div class="card">
+                    <h4>연출 의도</h4>
+                    <p>일상 속 기괴함·아름다움의 전환을 통해 자기 대면 유도</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 10 -->
+    <div id="tab10" class="tab-content">
+        <div class="slide">
+            <h2>🗣️ 언캐니 평론</h2>
+
+            <div class="grid">
+                <div class="card"><p>김민석: “일상의 낯섦을 섬세하게 포착.”</p></div>
+                <div class="card"><p>박소연: “조각상·거울 장면의 미학적 몰입감.”</p></div>
+                <div class="card"><p>이정우: “익숙함/낯섦 대비가 뛰어남.”</p></div>
+                <div class="card"><p>정혜진: “잔잔한 불편함이 사유 촉발.”</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName){
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+
+        document.getElementById(tabName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+    }
+</script>
+
+<!-- D-ID Agent -->
+<script type="module"
+    src="https://agent.d-id.com/v2/index.js"
+    data-mode="fabio"
+    data-client-key="YXV0aDB8NjhjY2YzNjE1YjE2NWQ4N2YxOTQ3YWYwOmFSbndyWDlFRVJ4WE1lNUh4aHFaNA=="
+    data-agent-id="v2_agt_XcqQClH_"
+    data-name="did-agent"
+    data-monitor="true"
+    data-orientation="horizontal"
+    data-position="right">
+</script>
+
 </body>
 </html>
