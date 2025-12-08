@@ -56,8 +56,10 @@
         .tab-content { display: none; padding: 40px; animation: fadeIn 0.5s; }
         .tab-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); }
-                            to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .slide { min-height: 500px; }
         .slide h2 {
@@ -68,12 +70,18 @@
         .slide p, .slide li {
             line-height: 1.8; color: #495057; font-size: 1.1em; margin-bottom: 10px;
         }
-        .slide ul { margin-left: 20px; }
+        .slide ul, .slide ol {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
 
         .box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; padding: 30px; border-radius: 15px; margin: 20px 0;
         }
+        .box h3 { color: white; margin-bottom: 15px; }
+        .box p, .box li { color: white; }
+
         .card {
             background: #f8f9fa;
             padding: 25px;
@@ -110,6 +118,7 @@
             background: #f8f9fa; border: 3px solid #dee2e6;
             padding: 20px; border-radius: 10px;
             cursor: pointer; transition: 0.3s;
+            font-size: 1.1em;
         }
         .quiz-option:hover {
             border-color: #667eea; background: #e7f3ff; transform: translateX(5px);
@@ -137,6 +146,12 @@
         footer {
             background: #2c3e50; color: white;
             padding: 30px; text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .tab-button { font-size: 12px; padding: 12px 15px; }
+            .slide h2 { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -170,16 +185,28 @@
 
             <div class="box">
                 <h3>개요</h3>
-                <p>경도인지장애(MCI)와 초기치매는 정상 노화와 치매 사이의 중간 단계로…</p>
-                <p>조기 발견과 적절한 관리를 통해 진행을 늦출 수 있습니다.</p>
+                <p>경도인지장애(MCI)와 초기치매는 정상 노화와 치매 사이의 중간 단계로, 기억력과 인지 기능의 저하가 나타나지만 일상생활은 대체로 유지되는 상태입니다.</p>
+                <p>조기 발견과 적절한 관리를 통해 진행을 늦추고 삶의 질을 향상시킬 수 있습니다.</p>
             </div>
 
             <h3>학습 목표</h3>
             <div class="grid">
-                <div class="card"><h4>조기 발견</h4><p>증상 인식과 정기검진</p></div>
-                <div class="card"><h4>적극적 관리</h4><p>약물/비약물 병행</p></div>
-                <div class="card"><h4>생활 습관</h4><p>운동, 사회활동</p></div>
-                <div class="card"><h4>가족 지원</h4><p>돌봄과 지지</p></div>
+                <div class="card">
+                    <h4>조기 발견</h4>
+                    <p>증상 인식과 정기적인 검진</p>
+                </div>
+                <div class="card">
+                    <h4>적극적 관리</h4>
+                    <p>약물 치료와 비약물 치료 병행</p>
+                </div>
+                <div class="card">
+                    <h4>생활 습관 개선</h4>
+                    <p>운동, 식습관, 사회활동</p>
+                </div>
+                <div class="card">
+                    <h4>가족의 지원</h4>
+                    <p>따뜻한 이해와 적절한 돌봄</p>
+                </div>
             </div>
         </div>
     </div>
@@ -191,7 +218,7 @@
 
             <div class="card">
                 <h4>학습 내용</h4>
-                <p>경도인지장애와 초기치매의 주요 증상을 이해하고 정상 노화와의 차이를 구분합니다.</p>
+                <p>경도인지장애와 초기치매의 주요 증상을 이해하고, 정상 노화와의 차이를 구분하는 능력을 배웁니다.</p>
             </div>
 
             <h3>핵심 증상</h3>
@@ -199,14 +226,14 @@
                 <ul>
                     <li>최근 일을 자주 잊어버림</li>
                     <li>익숙한 장소에서 길을 잃음</li>
-                    <li>말하고자 하는 단어가 떠오르지 않음</li>
-                    <li>계산 능력, 판단력 저하</li>
+                    <li>말하고자 하는 단어가 생각나지 않음</li>
+                    <li>판단력과 계산 능력 저하</li>
                 </ul>
             </div>
 
             <div class="highlight">
                 <h3>진로 방향</h3>
-                <p>조기 발견 시 전문가 상담, 인지훈련, 약물치료로 진행을 늦출 수 있습니다.</p>
+                <p>조기 발견 시 전문가 상담, 인지 훈련 프로그램, 약물 치료 등을 통해 진행을 늦출 수 있습니다.</p>
             </div>
         </div>
     </div>
@@ -218,27 +245,33 @@
 
             <div class="grid">
                 <div class="card">
-                    <h4>필수 검사</h4>
+                    <h4>핵심 검사</h4>
                     <ul>
                         <li>신경심리검사</li>
-                        <li>뇌 MRI/CT</li>
-                        <li>혈액검사</li>
-                        <li>일상생활능력평가</li>
+                        <li>뇌 영상 검사 (MRI, CT)</li>
+                        <li>혈액 검사</li>
+                        <li>일상생활 평가</li>
+                        <li>가족 면담</li>
+                        <li>인지 기능 평가</li>
                     </ul>
                 </div>
-
                 <div class="card">
-                    <h4>인지 기능 평가</h4>
+                    <h4>실습 중심 검사</h4>
                     <ul>
-                        <li>MMSE</li>
-                        <li>MoCA</li>
-                        <li>종합 인지 검사</li>
+                        <li>기억력 검사 (MMSE, MoCA)</li>
+                        <li>일상생활 능력 평가</li>
+                        <li>종합 인지 기능 검사</li>
                     </ul>
                 </div>
             </div>
 
+            <div class="box">
+                <h3>진단 후 지원 분야</h3>
+                <p>신경과 전문의, 정신건강의학과 전문의, 작업치료사, 사회복지사, 간호사, 심리상담사 등 다양한 전문가의 협력으로 환자와 가족을 지원합니다.</p>
+            </div>
+
             <div class="highlight">
-                <p>다양한 전문가들이 협력하여 종합적으로 평가합니다(의사, 간호사, 작업치료사 등).</p>
+                <p>전문가의 역할: 의사, 간호사, 작업치료사, 사회복지사 등 여러 전문가의 협업으로 완성되며, 진단, 치료, 돌봄, 지원을 통해 환자와 가족을 연결합니다.</p>
             </div>
         </div>
     </div>
@@ -250,17 +283,23 @@
 
             <div class="card">
                 <h4>분야 소개</h4>
-                <p>약물·비약물 치료를 병행하여 증상을 완화하는 방법을 다룹니다.</p>
+                <p>약물 치료, 인지 훈련, 운동 치료, 작업 치료 등 다양한 방법을 통한 증상 관리를 다룹니다.</p>
+                <p>개인별 맞춤 치료 계획을 수립하며, 정기적인 평가로 치료 효과를 확인합니다.</p>
             </div>
 
-            <h3>주요 치료법</h3>
+            <h3>관련 치료법</h3>
             <div class="box">
                 <ul>
-                    <li>약물 치료</li>
+                    <li>약물 치료 (콜린에스테라아제 억제제 등)</li>
                     <li>인지 훈련 프로그램</li>
-                    <li>운동 치료</li>
-                    <li>작업 치료</li>
+                    <li>운동 치료 (유산소 운동, 근력 운동)</li>
+                    <li>작업 치료 (일상생활 훈련)</li>
                 </ul>
+            </div>
+
+            <div class="highlight">
+                <h3>진로 방향</h3>
+                <p>치매안심센터, 신경과 클리닉, 재활의학과, 요양시설 등에서 전문적인 치료와 관리를 받을 수 있습니다.</p>
             </div>
         </div>
     </div>
@@ -272,13 +311,27 @@
 
             <h3>핵심 개념</h3>
             <div class="box">
-                <p>규칙적인 운동, 사회적 활동, 건강한 식습관이 예방의 핵심입니다.</p>
+                <p>규칙적인 운동, 건강한 식습관, 사회활동, 인지 활동 등을 통한 예방적 생활 습관을 다룹니다.</p>
             </div>
 
             <div class="grid">
-                <div class="card"><h4>운동</h4><p>주 3회 이상</p></div>
-                <div class="card"><h4>영양</h4><p>지중해식 식단</p></div>
-                <div class="card"><h4>사회활동</h4><p>대화·모임 지속</p></div>
+                <div class="card">
+                    <h4>규칙적 운동</h4>
+                    <p>주 3회 이상 유산소 운동</p>
+                </div>
+                <div class="card">
+                    <h4>건강한 식단</h4>
+                    <p>지중해식 식단, 과일·채소 섭취</p>
+                </div>
+                <div class="card">
+                    <h4>사회활동</h4>
+                    <p>친구 만남, 동호회 활동</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>융합 분야</h3>
+                <p>운동학, 영양학, 심리학, 사회복지학 등 다양한 영역과 융합하여 종합적인 예방 전략을 수립할 수 있습니다.</p>
             </div>
         </div>
     </div>
@@ -289,16 +342,23 @@
             <h2>💊 돌봄과 간호</h2>
 
             <div class="card">
-                <h4>목표</h4>
-                <p>환자의 안전·일상 유지·보호자 지원을 포함한 통합 돌봄 제공</p>
+                <h4>분야 소개</h4>
+                <p>환자와 보호자를 위한 돌봄 정보와 간호 방법을 안내하여 삶의 질 향상을 돕는 분야입니다.</p>
             </div>
 
+            <h3>핵심 목표</h3>
             <div class="box">
                 <ul>
-                    <li>안전한 환경 조성</li>
-                    <li>일상생활 능력 유지</li>
-                    <li>보호자 교육</li>
+                    <li>환자의 안전한 생활 환경 조성</li>
+                    <li>일상생활 능력 유지 및 향상</li>
+                    <li>보호자 교육 및 지원</li>
+                    <li>정서적 안정 제공</li>
                 </ul>
+            </div>
+
+            <div class="highlight">
+                <h3>진출 분야</h3>
+                <p>치매안심센터, 요양병원, 재가서비스, 보건소, 주간보호센터, 복지관 등에서 다양한 돌봄 서비스를 제공합니다.</p>
             </div>
         </div>
     </div>
@@ -308,10 +368,29 @@
         <div class="slide">
             <h2>💼 지원 및 복지 제도</h2>
 
+            <h3>대표 지원 분야</h3>
             <div class="grid">
-                <div class="card"><h4>치매안심센터</h4><p>무료 검진·교육 제공</p></div>
-                <div class="card"><h4>장기요양보험</h4><p>주야간 보호 등 지원</p></div>
-                <div class="card"><h4>치매 치료관리비</h4><p>약제비 일부 지원</p></div>
+                <div class="card">
+                    <h4>치매안심센터</h4>
+                    <p>무료 검진, 상담, 교육 프로그램</p>
+                </div>
+                <div class="card">
+                    <h4>장기요양보험</h4>
+                    <p>방문 요양, 주야간 보호</p>
+                </div>
+                <div class="card">
+                    <h4>치매치료관리비</h4>
+                    <p>약제비 지원</p>
+                </div>
+                <div class="card">
+                    <h4>가족지원</h4>
+                    <p>보호자 교육, 심리 상담</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>최근 지원 트렌드</h3>
+                <p>국가치매책임제를 통한 지원 확대, 치매안심마을 조성, 디지털 치매 예방 프로그램 등 다양한 정책이 시행되고 있습니다.</p>
             </div>
         </div>
     </div>
@@ -322,14 +401,27 @@
             <h2>🤖 AI·데이터 기반 치매 관리</h2>
 
             <div class="box">
-                <h3>미래 치매 관리 기술</h3>
-                <p>데이터 기반 진단, AI 맞춤형 인지훈련 등 신기술 활용</p>
+                <h3>AI와 데이터 기반 관리</h3>
+                <p>AI와 데이터 기반 치매 예방 및 관리는 미래 핵심 기술입니다.</p>
             </div>
 
             <div class="grid">
-                <div class="card"><h4>데이터 분석</h4></div>
-                <div class="card"><h4>AI 인지훈련</h4></div>
-                <div class="card"><h4>예측 모델</h4></div>
+                <div class="card">
+                    <h4>데이터 분석</h4>
+                    <p>인지 기능 데이터, 행동 패턴 분석</p>
+                </div>
+                <div class="card">
+                    <h4>AI 훈련</h4>
+                    <p>AI 기반 인지 훈련, 맞춤형 치료</p>
+                </div>
+                <div class="card">
+                    <h4>예측 알고리즘</h4>
+                    <p>조기 진단 알고리즘, 예측 모델</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <p>미래의 치매 관리는 기술과 돌봄을 융합하여 데이터 기반의 효과적인 치료 전략을 수립할 수 있어야 합니다.</p>
             </div>
         </div>
     </div>
@@ -339,9 +431,29 @@
         <div class="slide">
             <h2>🎓 관리 사례</h2>
 
-            <div class="card"><h4>조기 발견 사례</h4><p>정기 검진 → 조기 발견 → 적극 관리</p></div>
-            <div class="card"><h4>가족 돌봄 사례</h4><p>가족 교육 + 전문가 협력</p></div>
-            <div class="card"><h4>예방 프로그램 참여</h4></div>
+            <div class="card">
+                <h4>📰 조기 발견 사례</h4>
+                <p>정기 검진을 통해 경도인지장애를 조기 발견하고, 적극적인 인지 훈련과 운동 치료로 증상 진행을 늦춘 사례들</p>
+                <p><strong>역할:</strong> 정기 검진, 인지 훈련, 운동 프로그램 참여, 약물 치료 등</p>
+            </div>
+
+            <div class="card">
+                <h4>📢 가족 돌봄 사례</h4>
+                <p>가족의 헌신적인 돌봄과 전문가의 지원으로 환자가 안정된 일상생활을 유지한 사례들</p>
+                <p><strong>역할:</strong> 가족 교육, 주간보호센터 이용, 정서적 지지, 안전한 환경 조성 등</p>
+            </div>
+
+            <div class="card">
+                <h4>🎬 예방 프로그램 참여 사례</h4>
+                <p>치매안심센터의 예방 프로그램에 참여하여 건강한 노후를 준비한 사례들</p>
+                <p><strong>역할:</strong> 두뇌 건강 교실, 운동 프로그램, 영양 교육, 사회활동 등</p>
+            </div>
+
+            <div class="card">
+                <h4>💊 통합 돌봄 사례</h4>
+                <p>치매안심센터, 보건소, 복지관이 협력하여 통합 돌봄 서비스를 제공한 사례들</p>
+                <p><strong>역할:</strong> 통합 사례 관리, 방문 건강 관리, 가족 지원, 지역 자원 연계 등</p>
+            </div>
         </div>
     </div>
 
@@ -351,10 +463,27 @@
             <h2>✨ 조기 관리의 장점</h2>
 
             <div class="grid">
-                <div class="card"><h4>실무 균형</h4></div>
-                <div class="card"><h4>전문성</h4></div>
-                <div class="card"><h4>최신 트렌드</h4></div>
-                <div class="card"><h4>다양한 진로</h4></div>
+                <div class="card">
+                    <h4>이론과 실무의 균형</h4>
+                    <p>체계적인 의학 지식과 실무 중심 돌봄 기술의 조화</p>
+                </div>
+                <div class="card">
+                    <h4>전문적 지원</h4>
+                    <p>현장 전문가 협력, 의료기관 연계 프로그램</p>
+                </div>
+                <div class="card">
+                    <h4>최신 트렌드 반영</h4>
+                    <p>최신 치매 치료 트렌드를 반영한 관리 설계</p>
+                </div>
+                <div class="card">
+                    <h4>융합형 지원 선택</h4>
+                    <p>의료·요양·복지·상담 등 다양한 분야 선택 가능</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>통합 치료 프로그램</h3>
+                <p>환자들은 인지 훈련, 운동, 작업 치료, 사회활동 프로그램에 참여하며 인지 기능, 신체 건강, 정서적 안정, 사회성 역량을 강화합니다.</p>
             </div>
         </div>
     </div>
@@ -362,12 +491,36 @@
     <!-- FEATURES -->
     <div id="tab-features" class="tab-content">
         <div class="slide">
-            <h2>🏫 지원 체계의 특징</h2>
+            <h2>🏫 지원 체계의 특징과 비전</h2>
 
-            <div class="card"><h4>창의성</h4></div>
-            <div class="card"><h4>전문성</h4></div>
-            <div class="card"><h4>융합성</h4></div>
-            <div class="card"><h4>윤리성</h4></div>
+            <div class="card">
+                <h4>지원 목표</h4>
+                <p>치매안심센터, 의료기관, 복지기관 등에서 통합적이고 체계적인 돌봄 서비스를 제공하는 실무 중심 지원 프로그램을 운영합니다.</p>
+            </div>
+
+            <div class="box">
+                <h3>우리의 비전</h3>
+                <p>치매 환자와 가족이 존엄하고 행복한 삶을 영위할 수 있도록 지원하는 따뜻한 사회의 리더를 목표로 합니다.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>창의성</h4>
+                    <p>독창적인 치료 프로그램 개발</p>
+                </div>
+                <div class="card">
+                    <h4>전문성</h4>
+                    <p>분야별 심화 학습과 실무 역량</p>
+                </div>
+                <div class="card">
+                    <h4>융합성</h4>
+                    <p>다양한 분야와의 협업과 융합</p>
+                </div>
+                <div class="card">
+                    <h4>윤리성</h4>
+                    <p>사회적 책임과 윤리적 돌봄</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -380,9 +533,9 @@
                 <div class="card" style="margin-bottom: 30px;">
                     <h4>답변자 정보</h4>
                     <input type="text" id="quiz-studentName" placeholder="이름을 입력하세요"
-                        style="width: 100%; padding: 12px; font-size: 1.1em; border: 2px solid #dee2e6; border-radius: 8px; margin-top: 10px;">
+                           style="width: 100%; padding: 12px; font-size: 1.1em; border: 2px solid #dee2e6; border-radius: 8px; margin-top: 10px;">
                     <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
-                        * 답변 결과가 AI 지식베이스에 저장됩니다.
+                        * 답변 결과가 AI 에이전트 지식베이스에 저장됩니다.
                     </p>
                 </div>
 
@@ -391,10 +544,18 @@
                 </div>
 
                 <div class="quiz-options" id="quiz-options-set1">
-                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">① 완전한 치료만 가능</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, true, 1)">② 증상 진행 지연 및 삶의 질 관리</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">③ 의료비 지원</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">④ 입원 치료만 수행</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">
+                        <strong>① </strong>완전한 치료만 가능
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 1)">
+                        <strong>② </strong>증상 진행 지연 및 삶의 질 관리
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">
+                        <strong>③ </strong>의료비 지원만 전담
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 1)">
+                        <strong>④ </strong>입원 치료만 수행
+                    </div>
                 </div>
 
                 <div id="feedback1" class="quiz-feedback">
@@ -411,9 +572,8 @@
 </div>
 
 <!-- =========================== -->
-<!-- SCRIPT: 탭 + 퀴즈 + 저장 -->
+<!-- SCRIPT: 탭 + 퀴즈 + Netlify 저장 -->
 <!-- =========================== -->
-
 <script>
 function openTab(evt, tabName) {
     document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
@@ -462,11 +622,18 @@ function checkAnswer(element, isCorrect, quizSetId) {
     if (isCorrect) {
         element.classList.add("correct");
         feedback.className = "quiz-feedback correct show";
-        feedbackText.innerHTML = "✓ 정답입니다!<br>답변을 저장하고 있습니다...";
+        feedbackText.innerHTML =
+            '<strong>✓ 정답입니다!</strong><br><br>' +
+            '경도인지장애는 진행을 늦추고 삶의 질을 관리하는 것이 조기 발견의 핵심 목표입니다.<br><br>' +
+            '<em style="color: #28a745;">답변을 저장하고 있습니다...</em>';
     } else {
         element.classList.add("incorrect");
         feedback.className = "quiz-feedback incorrect show";
-        feedbackText.innerHTML = `✗ 오답입니다.<br>정답: ${correctAnswerText}<br>답변을 저장하고 있습니다...`;
+        feedbackText.innerHTML =
+            '<strong>✗ 아쉽습니다.</strong><br><br>' +
+            '정답은 <strong>②번</strong>입니다.<br><br>' +
+            '조기 발견은 치매로의 진행을 늦추고(지연) 환자와 가족의 삶의 질을 관리하는 데 가장 중요합니다.<br><br>' +
+            '<em style="color: #dc3545;">답변을 저장하고 있습니다...</em>';
 
         for (let option of options) {
             if (option.textContent.includes(correctAnswerText)) {
@@ -477,9 +644,18 @@ function checkAnswer(element, isCorrect, quizSetId) {
 
     updateKnowledge(studentName, question, selectedAnswer, isCorrect)
         .then(success => {
-            feedbackText.innerHTML = success
-                ? "✅ 답변이 성공적으로 저장되었습니다!"
-                : "⚠️ 저장 중 오류가 발생했습니다.";
+            const currentHTML = feedbackText.innerHTML;
+            if (success) {
+                feedbackText.innerHTML = currentHTML.replace(
+                    "답변을 저장하고 있습니다...",
+                    "✅ 답변이 AI 에이전트에 저장되었습니다!"
+                );
+            } else {
+                feedbackText.innerHTML = currentHTML.replace(
+                    "답변을 저장하고 있습니다...",
+                    "⚠️ 답변 저장 중 오류가 발생했습니다."
+                );
+            }
         });
 }
 
@@ -489,18 +665,17 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- =========================== -->
-<!-- D-ID Agent Widget 삽입 -->
+<!-- D-ID AI Agent -->
 <!-- =========================== -->
-
 <script type="module"
-  src="https://agent.d-id.com/v2/index.js"
-  data-mode="fabio"
-  data-client-key="YXVoaD8BNljiY2Y2NjE1YjE2NWQ4N2YxOTQ3YWYw"
-  data-agent-id="v2_agt_XcqQClH_"
-  data-name="did-agent"
-  data-monitor="true"
-  data-orientation="horizontal"
-  data-position="right">
+        src="https://agent.d-id.com/v2/index.js"
+        data-mode="fabio"
+        data-client-key="YXV0aDB8NjhjY2YzNjE1YjE2NWQ4N2YxOTQ3YWYwOmFSbndyWDlFRVJ4WE1lNUh4aHFaNA=="
+        data-agent-id="v2_agt_XcqQClH_"
+        data-name="did-agent"
+        data-monitor="true"
+        data-orientation="horizontal"
+        data-position="right">
 </script>
 
 </body>
