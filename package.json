@@ -1,7 +1,7 @@
 {
-  "name": "elderly-exercise-quiz",
+  "name": "Know",
   "version": "1.0.0",
-  "description": "노인 운동 프로그램 프레젠테이션 with D-ID Knowledge Integration",
+  "description": "경도인지장애·초기치매 정보 안내 with D-ID Knowledge Integration",
   "main": "index.html",
   "scripts": {
     "dev": "netlify dev"
